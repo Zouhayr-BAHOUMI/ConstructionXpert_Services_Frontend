@@ -25,7 +25,9 @@ body {
 .btn {
     font-size: 12px;
     margin-right: 1rem;
+    padding: 0.5rem 1rem; 
 }
+
 @media (max-width: 768px) {
     .table-responsive {
         margin: 0 -15px;

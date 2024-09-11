@@ -1,0 +1,57 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Create New Panne</h5>
+            <a routerLink="../" class="btn btn-link">Back</a>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="createProjetForm" >
+              <div class="form-group row">
+                <label for="nom" class="col-md-4 col-form-label text-md-right">Projet nom</label>
+                <div class="col-md-6">
+                  <input id="nom" type="text" class="form-control" formControlName="nom" required>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label for="description" class="col-md-4 col-form-label text-md-right">Description</label>
+                <div class="col-md-6">
+                  <textarea id="description" class="form-control" formControlName="description" rows="3" required></textarea>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="startDate" class="col-md-4 col-form-label text-md-right">Start Date</label>
+                <div class="col-md-6">
+                  <input id="startDate" type="date" class="form-control" formControlName="startDate" required>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label for="endDate" class="col-md-4 col-form-label text-md-right">End Date</label>
+                <div class="col-md-6">
+                  <input id="endDate" type="date" class="form-control" formControlName="endDate" required>
+                </div>
+              </div>
+  
+              <div class="form-group row">
+                <label for="budget" class="col-md-4 col-form-label text-md-right">Budget</label>
+                <div class="col-md-6">
+                  <input id="budget" type="number" class="form-control" formControlName="budget" required>
+                </div>
+              </div>
+  
+              <div class="form-group row mb-0">
+                <div class="col-md-6 offset-md-4">
+                  <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

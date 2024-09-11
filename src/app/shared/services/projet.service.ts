@@ -15,4 +15,8 @@ export class ProjetService {
   public getProjets (): Observable<Projet[]>{
     return this.http.get<Projet[]>(`${this.apiUrl}/projets/`);
   }
+
+  public addProjet(projet: Projet): Observable<Projet> {
+    return this.http.post<Projet>(`${this.apiUrl}/projets/add`, projet, { responseType: 'text' as 'json' });
+  }
 }

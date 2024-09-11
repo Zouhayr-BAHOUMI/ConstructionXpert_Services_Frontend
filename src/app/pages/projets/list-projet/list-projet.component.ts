@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { Projet } from 'src/app/interfaces/projet';
 import { ProjetService } from 'src/app/shared/services/projet.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-list-projet',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './list-projet.component.html',
   styleUrls: ['./list-projet.component.scss']
 })
