@@ -1,0 +1,38 @@
+<div class="container mt-4">
+    <div class="d-sm-flex align-items-center justify-content-between mt-5 mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Projects</h1>
+    </div>
+    <div class="row">
+        <div class="card mx-auto">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Project Name</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Start Date</th>
+                                <th scope="col">End Date</th>
+                                <th scope="col">Budget</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let projet of projets">
+                                <td data-label="Project Name">{{ projet.nom_projet }}</td>
+                                <td data-label="Description">{{ projet.description }}</td>
+                                <td data-label="Start Date">{{ projet.date_debut }}</td>
+                                <td data-label="End Date">{{ projet.date_fin }}</td>
+                                <td data-label="Budget">{{ projet.budget }}DH</td>
+                                <td data-label="Actions">
+                                    <a class="btn btn-primary btn-sm mr-4">Edit</a>
+                                    <a class="btn btn-danger btn-sm ">Delete</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
