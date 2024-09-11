@@ -32,7 +32,7 @@ export class CreateProjetComponent implements OnInit{
   ngOnInit(): void {}
 
   onSubmit(): void {
-    console.log('Payload:', JSON.stringify(this.createProjetForm.value));
+    
     if (this.createProjetForm.valid) {
       const projetToAdd = this.createProjetForm.value;
 
