@@ -1,8 +1,12 @@
-<div>
-    <mat-toolbar color="primary" class="navbar">
-      <span class="navbar-brand">ConstructionXpert Services</span>
-      <span class="spacer"></span>
-      <button mat-button routerLink="/signup" routerLinkActive="active">Register</button>
-      <button mat-button routerLink="/login" routerLinkActive="active">Login</button>
-    </mat-toolbar>
-</div>
+<mat-toolbar class="navbar">
+  <div class="navbar-container">
+    <a class="navbar-brand" routerLink="/">
+      <span>ConstructionXpert Services</span>
+    </a>
+    <div class="spacer"></div>
+    <button mat-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</button>
+    <button mat-button routerLink="/projets" routerLinkActive="active">Projects</button>
+    <button mat-button routerLink="/tasks" routerLinkActive="active">Tasks</button>
+    <button class="connexion-btn" routerLink="/login">Connexion</button>
+  </div>
+</mat-toolbar>
