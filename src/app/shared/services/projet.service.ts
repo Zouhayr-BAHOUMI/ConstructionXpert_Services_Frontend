@@ -28,4 +28,8 @@ export class ProjetService {
   public updateProjet(idProjet: number, projet: Projet): Observable<void> {
     return this.http.put<void>(`${this.apiUrl}/projets/update/${idProjet}`, projet);
   }
+
+  public deleteProjet(idProjet: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/projets/delete/${idProjet}`);
+  }
 }

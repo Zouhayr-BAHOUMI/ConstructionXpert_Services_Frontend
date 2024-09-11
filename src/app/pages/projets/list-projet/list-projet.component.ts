@@ -15,6 +15,8 @@ import { RouterModule } from '@angular/router';
 export class ListProjetComponent implements OnInit {
 
   public projets: Projet[] = [];
+  projetToDelete : Projet | null = null;
+  showModal = false;
 
   constructor(private projetService : ProjetService){}
 
@@ -31,5 +33,28 @@ export class ListProjetComponent implements OnInit {
         console.log(error.message);
       }
     );
+  }
+
+  openDeleteModal(projet : Projet) : void{
+    this.projetToDelete = projet;
+    this.showModal = true;
+  }
+
+  confirmDelete(): void {
+    if (this.projetToDelete) {
+      this.deleteProjet(this.projetToDelete.idProjet);
+    }
+  }
+
+  cancelDelete() {
+    this.showModal = false;
+    this.projetToDelete = null;
+  }
+
+  deleteProjet(id: number): void {
+    this.projetService.deleteProjet(id).subscribe(() => {
+      this.getProjets();
+      this.cancelDelete();
+    });
   }
 }
