@@ -1,60 +1,90 @@
 .navbar {
+  background-color: white;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .navbar-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #111827;
+}
+
+.logo {
+  height: 2rem;
+  margin-right: 0.75rem;
+}
+
+.navbar-brand span {
   font-size: 1.5rem;
-  font-weight: bold;
-  color: white;
-  text-transform: uppercase;
+  font-weight: 600;
 }
 
 .spacer {
   flex: 1;
 }
 
-button {
-  background-color: #4e73df; 
-  border: none;
-  font-size: 14px;
+.mat-button {
+  color: #4b5563;
+  font-weight: 500;
+}
+
+.mat-button.active {
+  color: #2563eb;
+}
+
+.connexion-btn {
   color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  margin-right: 10px;
+  background-color: #2563eb;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-left: 2rem;
 }
 
-button:hover {
-  background-color: #2e59d9;
+.connexion-btn:hover {
+  background-color: #1d4ed8;
 }
 
-button:active {
-  background-color: #244a8f; 
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  transform: translateY(2px);
-}
-
-button:focus {
+.connexion-btn:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(78, 115, 223, 0.5);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.5);
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
+@media (prefers-color-scheme: dark) {
   .navbar {
-    flex-direction: column;
-    padding: 10px;
+    background-color: #111827;
+    border-color: #374151;
   }
 
-  .navbar-brand {
-    margin-bottom: 10px;
+  .navbar-brand, .mat-button {
+    color: white;
   }
 
-  button {
-    margin: 5px 0;
-    width: 100%;
+  .mat-button.active {
+    color: #3b82f6;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-wrap: wrap;
+  }
+
+  .auth-button {
+    margin-top: 0.5rem;
   }
 }
