@@ -6,9 +6,17 @@ import { LoginComponent } from './auth/login/login.component';
 
 export const routes: Routes = [
 
+    // { path: 'login', component: LoginComponent, pathMatch: 'full' },
+    // { path: '', component: LoginComponent },
+    // { path: 'projets', component: ListProjetComponent },
+    // { path: 'projets/create', component: CreateProjetComponent },
+    // { path: 'projets/edit/:idProjet', component: EditProjetComponent },
+
     { path: 'login', component: LoginComponent, pathMatch: 'full' },
-    { path: '', component: LoginComponent },
-    { path: 'projets', component: ListProjetComponent },
-    { path: 'projets/create', component: CreateProjetComponent },
-    { path: 'projets/edit/:idProjet', component: EditProjetComponent },
+  { path: 'admin', children: [
+      { path: '', component: ListProjetComponent }, 
+      { path: 'projets', component: ListProjetComponent },
+      { path: 'projets/create', component: CreateProjetComponent },
+      { path: 'projets/edit/:idProjet', component: EditProjetComponent },
+  ] },
 ];
