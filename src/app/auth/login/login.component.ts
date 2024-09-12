@@ -5,13 +5,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/core/auth.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, RouterModule, MatFormFieldModule, MatInputModule, MatCardModule, MatCheckboxModule],
+  imports: [CommonModule, RouterModule, MatFormFieldModule, MatInputModule, MatCardModule, MatCheckboxModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
@@ -65,7 +65,7 @@ export class LoginComponent {
     
       switch(role){
         case 'ADMIN' : 
-          this.router.navigate(['/admin']);
+          this.router.navigate(['/admin/projets']);
           break;
 
         case 'USER' :

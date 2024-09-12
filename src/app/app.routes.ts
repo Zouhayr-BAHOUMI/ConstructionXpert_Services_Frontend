@@ -13,10 +13,10 @@ export const routes: Routes = [
     // { path: 'projets/edit/:idProjet', component: EditProjetComponent },
 
     { path: 'login', component: LoginComponent, pathMatch: 'full' },
-    { path: 'admin/', component: ListProjetComponent, children : [
-        { path: '', component: ListProjetComponent },
-        { path: 'projets', component: ListProjetComponent },
-        { path: 'projets/create', component: CreateProjetComponent },
-        { path: 'projets/edit/:idProjet', component: EditProjetComponent },
-    ] },
+  { path: 'admin', children: [
+      { path: '', component: ListProjetComponent }, 
+      { path: 'projets', component: ListProjetComponent },
+      { path: 'projets/create', component: CreateProjetComponent },
+      { path: 'projets/edit/:idProjet', component: EditProjetComponent },
+  ] },
 ];
