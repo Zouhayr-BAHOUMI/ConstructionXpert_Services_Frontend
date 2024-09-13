@@ -3,12 +3,22 @@ import { ListProjetComponent } from './pages/projets/list-projet/list-projet.com
 import { CreateProjetComponent } from './pages/projets/create-projet/create-projet.component';
 import { EditProjetComponent } from './pages/projets/edit-projet/edit-projet.component';
 import { LoginComponent } from './auth/login/login.component';
+import { HomeComponent } from './shared/compenants/home/home.component';
 
 export const routes: Routes = [
 
-    { path: 'login', component: LoginComponent, pathMatch: 'full' },
-    { path: '', component: LoginComponent },
-    { path: 'projets', component: ListProjetComponent },
-    { path: 'projets/create', component: CreateProjetComponent },
-    { path: 'projets/edit/:idProjet', component: EditProjetComponent },
+    // { path: 'login', component: LoginComponent, pathMatch: 'full' },
+    // { path: '', component: LoginComponent },
+    // { path: 'projets', component: ListProjetComponent },
+    // { path: 'projets/create', component: CreateProjetComponent },
+    // { path: 'projets/edit/:idProjet', component: EditProjetComponent },
+
+  { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent, pathMatch: 'full' },
+  { path: 'admin', children: [
+      { path: '', component: ListProjetComponent }, 
+      { path: 'projets', component: ListProjetComponent },
+      { path: 'projets/create', component: CreateProjetComponent },
+      { path: 'projets/edit/:idProjet', component: EditProjetComponent },
+  ] },
 ];
