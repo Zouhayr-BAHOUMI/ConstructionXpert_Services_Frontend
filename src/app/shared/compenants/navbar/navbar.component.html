@@ -1,10 +1,10 @@
 <mat-toolbar class="navbar">
   <div class="navbar-container">
-    <a class="navbar-brand" routerLink="/">
+    <a class="navbar-brand" routerLink="/login">
       <span>ConstructionXpert Services</span>
     </a>
     <div class="spacer"></div>
-    <button mat-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</button>
+    <button mat-button routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</button>
     <button mat-button *ngIf="isLoggedIn" routerLink="/admin/projets" routerLinkActive="active">Projects</button>
     <button mat-button *ngIf="isLoggedIn" routerLink="/tasks" routerLinkActive="active">Tasks</button>
     <span  *ngIf="isLoggedIn" class="ml-4">{{fullName}}</span>
