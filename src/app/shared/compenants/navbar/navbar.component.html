@@ -1,12 +1,14 @@
 <mat-toolbar class="navbar">
   <div class="navbar-container">
-    <a class="navbar-brand" routerLink="/">
+    <a class="navbar-brand" routerLink="/login">
       <span>ConstructionXpert Services</span>
     </a>
     <div class="spacer"></div>
-    <button mat-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</button>
-    <button mat-button routerLink="/admin/projets" routerLinkActive="active">Projects</button>
-    <button mat-button routerLink="/tasks" routerLinkActive="active">Tasks</button>
-    <button class="connexion-btn" routerLink="/login">Connexion</button>
+    <button mat-button routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</button>
+    <button mat-button *ngIf="isLoggedIn" routerLink="/admin/projets" routerLinkActive="active">Projects</button>
+    <button mat-button *ngIf="isLoggedIn" routerLink="/tasks" routerLinkActive="active">Tasks</button>
+    <span  *ngIf="isLoggedIn" class="ml-4">{{fullName}}</span>
+    <button class="connexion-btn" *ngIf="!isLoggedIn" routerLink="/login">Connexion</button>
+    <button class="connexion-btn" *ngIf="isLoggedIn" (click)="logout()">Logout</button>
   </div>
 </mat-toolbar>
