@@ -2,50 +2,49 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ProjetService } from 'src/app/shared/services/projet.service';
+import { TacheService } from 'src/app/shared/services/tache.service';
 
 @Component({
-  selector: 'app-create-projet',
+  selector: 'app-create-tache',
   standalone: true,
   imports: [CommonModule, RouterModule, ReactiveFormsModule],
-  templateUrl: './create-projet.component.html',
-  styleUrls: ['./create-projet.component.scss']
+  templateUrl: './create-tache.component.html',
+  styleUrls: ['./create-tache.component.scss']
 })
-export class CreateProjetComponent implements OnInit{
+export class CreateTacheComponent implements OnInit {
 
-  createProjetForm!: FormGroup;
+  createTacheForm!: FormGroup;
 
   constructor(
-    private projetService: ProjetService,
+    private tacheService: TacheService,
     private formBuilder: FormBuilder,
     private router: Router
   ) {
-    this.createProjetForm = this.formBuilder.group({
-      nom_projet: ['', Validators.required],
+    this.createTacheForm = this.formBuilder.group({
       description: ['', Validators.required],
       date_debut: ['', Validators.required],
       date_fin: ['', Validators.required],
-      budget: ['', [Validators.required, Validators.min(0)]]
+      status: ['', Validators.required],
+      idProjet: ['', [Validators.required, Validators.min(1)]]
     });
   }
 
   ngOnInit(): void {}
 
   onSubmit(): void {
-    
-    if (this.createProjetForm.valid) {
-      const projetToAdd = this.createProjetForm.value;
+    if (this.createTacheForm.valid) {
+      const tacheToAdd = this.createTacheForm.value;
+      const idProjet = tacheToAdd.idProjet;
 
-      this.projetService.addProjet(projetToAdd).subscribe(
+      this.tacheService.addTache(tacheToAdd, idProjet).subscribe(
         response => {
-          console.log('Project created successfully', response);
-          this.router.navigate(['']);
+          console.log('Task created successfully', response);
+          this.router.navigate(['/tasks']); // Adjust this route as needed
         },
         error => {
-          console.error('Error creating project', error);
+          console.error('Error creating task', error);
         }
       );
     }
   }
-
 }
