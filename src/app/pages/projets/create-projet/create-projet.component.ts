@@ -39,7 +39,7 @@ export class CreateProjetComponent implements OnInit{
       this.projetService.addProjet(projetToAdd).subscribe(
         response => {
           console.log('Project created successfully', response);
-          this.router.navigate(['']);
+          this.router.navigate(['admin/projets']);
         },
         error => {
           console.error('Error creating project', error);

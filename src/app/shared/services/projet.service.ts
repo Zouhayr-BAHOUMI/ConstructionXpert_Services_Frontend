@@ -7,18 +7,18 @@ import { Projet } from 'src/app/interfaces/projet';
   providedIn: 'root'
 })
 export class ProjetService {
-  
+
 
   private apiUrl = 'http://localhost:8020';
 
   constructor(private http:HttpClient) { }
 
-  public getProjets (): Observable<Projet[]>{
+  public getProjets(): Observable<Projet[]> {
     return this.http.get<Projet[]>(`${this.apiUrl}/projets/`);
   }
 
   public addProjet(projet: Projet): Observable<Projet> {
-    return this.http.post<Projet>(`${this.apiUrl}/projets/add`, projet, { responseType: 'text' as 'json' });
+    return this.http.post<Projet>(`${this.apiUrl}/projets/add`, projet);
   }
 
   public getProjetById(idProjet: number): Observable<Projet> {
@@ -32,4 +32,5 @@ export class ProjetService {
   public deleteProjet(idProjet: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/projets/delete/${idProjet}`);
   }
+
 }
